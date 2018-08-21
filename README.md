@@ -47,12 +47,12 @@ This repository contains a set of exercises organized in folders. Each folder co
 
 #### Icons with special meaning
 
-:pencil2: - A task you should do  
-:book: - A section of text to read (no tasks, just information).  
-:bulb: - Additional information.  
-:exclamation: - Something important.  
-:question: - Open-ended question for the reader ("What do you think would happen if...")  
-:poop: - Bad practice (don't-do-this)  
+:pencil2: - A task you should do
+:book: - A section of text to read (no tasks, just information).
+:bulb: - Additional information.
+:exclamation: - Something important.
+:question: - Open-ended question for the reader ("What do you think would happen if...")
+:poop: - Bad practice (don't-do-this)
 :star: - A bonus task (not required)
 
 #### Keyboard keys
@@ -69,3 +69,7 @@ Emphasizes how lines of text should change.
 - this text was removed
 + and replaced with this text
 ```
+
+## Standing on the shoulders of giants
+
+These excercises were originally forked from the excellent [React and Redux](https://github.com/nerdschoolbergen/react) workshop materials by [Bergen Nerdschool](https://nerdschoolbergen.github.io/home/).
