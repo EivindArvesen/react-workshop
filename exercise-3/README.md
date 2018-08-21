@@ -43,8 +43,8 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 :book: Now that we have a basic understanding of what we want to make, let's dive right in and get started on the `App` component.
 
-:pencil2: Open `App.js` and remove all of its content.  
-:pencil2: All React components must import React in order to run, so start by adding the line `import React from 'react'`.  
+:pencil2: Open `App.js` and remove all of its content.
+:pencil2: All React components must import React in order to run, so start by adding the line `import React from 'react';`.
 :pencil2: Let's assume we only need App as a pure component and add the following:
 
 ```jsx
@@ -57,7 +57,7 @@ const App = () => (
 
 > :bulb: Unless we know for sure we'll need lifecycle methods, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
 
-:pencil2: Then we need to finish up by exporting the component out of the module: `export default App`;
+:pencil2: Then we need to finish up by exporting the component out of the module: `export default App;`
 
 The header should now render to the screen.
 
@@ -81,10 +81,10 @@ Next, let's start on the list itself. For now, we'll work with dummy data.
 
 This is the component that will print out how many tasks we have registered and how many of those are completed. Here we'll obviously need some data, but at this stage we'll make the basic structure of the component and provide some dummy data. We'll switch to real data in a later exercise.
 
-:pencil2: For simplicity, start by copying all content in `App.js` and make a new file `Summary.jsx` and paste the content in.  
+:pencil2: For simplicity, start by copying all content in `App.js` and make a new file `Summary.jsx` and paste the content in.
 :pencil2: Change the name of the component inside of `Summary.jsx` from _App_ to _Summary_.
 
-Now we need to decide what props we need. We have to options:
+Now we need to decide what props we need. We have two options:
 
 1. One `todosCount` prop and another `completedTodosCount` prop which'll be the respective numbers.
 2. The list of all `todoItems`, then filter that list to find the total and completed numbers.
@@ -155,7 +155,7 @@ We'll use plain CSS today for simplicity.
 > :bulb: To learn more about setting up Sass, see the [Adding a Sass Stylesheet
 > ](https://facebook.github.io/create-react-app/docs/adding-a-sass-stylesheet) section of the `create-react-app` documentation.
 
-:pencil2: Add the new CSS file `summary.css`.  
+:pencil2: Add the new CSS file `summary.css`.
 :pencil2: Define the two classes:
 
 ```css
@@ -178,8 +178,8 @@ The styling should now take effect in the browser. The cool thing now is that st
 
 ## 3.3 - The `TodoList` component
 
-:pencil2: Again, start by copying all content in `App.js` and make a new file `TodoList.jsx` and paste the content in.  
-:pencil2: Change the name of the component inside of `TodoList.jsx` from _App_ to _TodoList_.  
+:pencil2: Again, start by copying all content in `App.js` and make a new file `TodoList.jsx` and paste the content in.
+:pencil2: Change the name of the component inside of `TodoList.jsx` from _App_ to _TodoList_.
 :pencil2: Remove all other imports than `import React from 'react'`.
 :pencil2: We know we'll need a list of todo items, so change the `TodoList` function to take in a `todoItems` props, using the _destruct_ syntax:
 
@@ -205,7 +205,7 @@ const TodoList = ({ todoItems }) => (
 
 We'll worry about what to do with `todoItem` in a bit.
 
-:pencil2: The `TodoItem` component is not defined in this file yet, so add an import at the top: `import TodoItem from './TodoItem'`.  
+:pencil2: The `TodoItem` component is not defined in this file yet, so add an import at the top: `import TodoItem from './TodoItem'`.
 :pencil2: While we're here, add the import-statement `import PropTypes from 'prop-types'` aswell.
 
 Next, we need to add `todoItems` to prop types.
@@ -234,7 +234,7 @@ Now we are guaranteed to always have at least an empty array provided as `todoIt
 
 We still need to declare what the `Todo` model is.
 
-:pencil2: Add the import `import Todo from './Todo'`.  
+:pencil2: Add the import `import Todo from './Todo'`.
 :pencil2: Then create the file `Todo.js` with the content:
 
 ```js
@@ -407,12 +407,12 @@ According to our _todo app specifications_, the `TodoItem` component should also
 
 Before moving on, let's do some css cleanup to make it look more like our wireframe sketch.
 
-:pencil2: Stop the web server in your terminal.  
-:pencil2: Rename `App.js` to `App.jsx`.  
-:pencil2: Rename `App.css` to `app.css`.  
-:pencil2: Rename `App.test.js` to `App.test.jsx`.  
-:pencil2: In the `App` component, import the css file at the top, similar to how we did it in `Summary`.  
-:pencil2: In `app.css`, remove all of its content and add the following:
+:pencil2: Stop the web server in your terminal.
+:pencil2: Rename `App.js` to `App.jsx`.
+:pencil2: Rename `App.css` to `app.css`.
+:pencil2: Rename `App.test.js` to `App.test.jsx`.
+:pencil2: In the `App` component, import the css file at the top, similar to how we did it in `Summary`.
+:pencil2: In `App.css`, add the following:
 
 ```css
 .app {
@@ -427,7 +427,7 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 
 Apply the `app` class to the outer `<div>` in `App.jsx`.
 
-:pencil2: Run `npm start` again. There should be no warnings or errors in the browser console, and the content should now be centered on the screen.  
+:pencil2: Run `npm start` again. There should be no warnings or errors in the browser console, and the content should now be centered on the screen.
 :pencil2: Create `todoItem.css` and add the following:
 
 ```css
@@ -439,7 +439,7 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
 }
 ```
 
-:pencil2: In `TodoItem.jsx`, import the css, similar to `App` and `Summary`.  
+:pencil2: In `TodoItem.jsx`, import the css, similar to `App` and `Summary`.
 :pencil2: Wrap the label and checkbox in another `<div>`:
 
 ```jsx
