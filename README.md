@@ -11,10 +11,10 @@ Time estimate: 4-6 hours
 
 ## What you need
 -	Google Chrome
-  - Extension: "React dev tools"
-  - Extension: "Redux dev tools"
--	An text editor that understands JavaScript and React (Atom, Visual Studio Code, SublimeText, etc). If you're using Atom, you'll need to install the plugin `react` as well.
--	NodeJS (latest) og npm (latest). Run `node -v` and `npm -v` to check what version you have. Check the latest version at [NodeJS.org](https://nodejs.org/en/) and upgrade if you're out of date.
+  - Extension: "[React dev tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)"
+  - Extension: "[Redux dev tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)"
+-	An text editor that understands JavaScript and React (Atom, Visual Studio Code, Sublime Text, etc). If you're using Atom, you'll need to install the plugin `react` as well.
+-	NodeJS (latest) and npm (latest). Run `node -v` and `npm -v` to check what version you have. Check the latest version at [NodeJS.org](https://nodejs.org/en/) and upgrade if you're out of date.
 
 ## How to get started
 
@@ -35,13 +35,13 @@ This repository contains a set of exercises organized in folders. Each folder co
 
 #### Icons with special meaning
 
-:pencil2: - A task you should do  
-:book: - A section of text to read (no tasks, just information).  
-:bulb: - Additional information.  
-:exclamation: - Something important.  
-:question: - Open-ended question for the reader ("What do you think would happen if...")  
-:poop: - Bad practice (don't-do-this)  
-:star: - A bonus task (not required)  
+:pencil2: - A task you should do
+:book: - A section of text to read (no tasks, just information).
+:bulb: - Additional information.
+:exclamation: - Something important.
+:question: - Open-ended question for the reader ("What do you think would happen if...")
+:poop: - Bad practice (don't-do-this)
+:star: - A bonus task (not required)
 
 #### Keyboard keys
 
@@ -57,3 +57,6 @@ Emphasizes how lines of text should change.
 - this text was removed
 + and replaced with this text
 ```
+
+## Standing on the shoulders of giants
+These excercises were originally forked from the excellent [React and Redux](https://github.com/nerdschoolbergen/react) workshop materials by [Bergen Nerdschool](https://nerdschoolbergen.github.io/home/).
