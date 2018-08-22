@@ -82,8 +82,70 @@ export default connect(
 
 5.  :pencil2: Finally, we have to use the _TodoListContainer_ component in our _App_ instead of the _TodoList_ component. Open _App.jsx_ and import and use _TodoListContainer_ instead of _TodoList_. Since the _TodoListContainer_ component now takes care of loading the list of _todoItems_, this prop can be removed. Using this component should be as straight-forward as `<TodoListContainer />`.
 
-:pencil2: Make sure the list of todos still renders in the browser.  
+:pencil2: Make sure the list of todos still renders in the browser.
 :pencil2: Keep _Redux dev tools_ open in Chrome. Use the `State` and `Tree` modes and verify that the `todos` node in the state inspector now has the list of todos.
+
+Your `App.jsx` will now look like this:
+
+```jsx
+import React from 'react';
+import Summary from './Summary';
+import TodoListContainer from './TodoListContainer';
+
+import './app.css';
+
+const App = () => (
+  <div className="app">
+    <h1>My Todo App</h1>
+    <Summary todosCount={5} completedTodosCount={3} />
+    <TodoListContainer />
+  </div>
+);
+
+export default App;
+```
+
+Your `todosReducer.js` will now look like this:
+
+```jsx
+import Todo from './Todo';
+
+const defaultTodos = [
+  new Todo(1, 'Wake up'),
+  new Todo(2, 'Do the dishes'),
+  new Todo(3, 'Fold clothes'),
+  new Todo(4, 'Browse Reddit')
+];
+
+const todosReducer = (todos = defaultTodos, action) => {
+  switch (action.type) {
+    default:
+      return todos;
+  }
+};
+
+export default todosReducer;
+```
+
+Your `TodoListContainer.jsx` will now look like this:
+
+```jsx
+import React from "react";
+import { connect } from "react-redux";
+import TodoList from "./TodoList";
+
+const TodoListContainer = props => <TodoList {...props} />;
+
+const mapStateToProps = state => ({
+  todoItems: state.todos
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(TodoListContainer);
+
+```
 
 ## 5.2 - Initial data by dispatching actions
 
@@ -95,7 +157,7 @@ Remember this one-way data flow:
 
 The first step, so we can slowly get familiar with Redux, is to dispatch one `createTodo` action for each initial todo we have hard-coded into the reducer so far.
 
-:pencil2: Create a new file `todoActions.js`.  
+:pencil2: Create a new file `todoActions.js`.
 :pencil2: Create the `createTodo` action:
 
 ```js
@@ -105,7 +167,7 @@ export const createTodo = description => ({
 });
 ```
 
-:pencil2: Open `todosReducer.js` and add a new `case` that handles the `CREATE_TODO` action type.  
+:pencil2: Open `todosReducer.js` and add a new `case` that handles the `CREATE_TODO` action type.
 :pencil2: Implement the case for `CREATE_TODO`. Make the new state be the existing list of todos plus the new one contained in `action.description`. You can use the code examples in exercise 4 if you're stuck (but please try first).
 
 > :exclamation: Remember to avoid modifying the existing state/list of todos. You want to create a new list containing copies of the items plus the new todo item.
@@ -230,9 +292,9 @@ You should now see the same list of todo items render in the browser with no err
 
 > :exclamation: Remember to remove the default todo items in `todosReducer` and make the default state be an empty array again.
 
-:pencil2: Open _Redux dev tools_ and inspect the left-hand panel. It should now contain 4 `CREATE_TODO` actions (or however many actions you dispatched).  
-:pencil2: As you select each action (while in the `Diff` mode), notice how the main panel shows how the state changed when that action was received and reduced in the store. This gets more interesting when we start editing individual properties in exisiting objects and other more complicated operations.  
-:pencil2: Switch to `Action` mode and see that you can inspect the action that was dispatched in detail.  
+:pencil2: Open _Redux dev tools_ and inspect the left-hand panel. It should now contain 4 `CREATE_TODO` actions (or however many actions you dispatched).
+:pencil2: As you select each action (while in the `Diff` mode), notice how the main panel shows how the state changed when that action was received and reduced in the store. This gets more interesting when we start editing individual properties in exisiting objects and other more complicated operations.
+:pencil2: Switch to `Action` mode and see that you can inspect the action that was dispatched in detail.
 :pencil2: Click actions in the left-hand panel and note the small `Jump|Skip` buttons to the right in each list entry. Click _Jump_ and see how the GUI now shows _how the app looks while in the state up until that point_.
 
 Pretty powerful debugging tools and extremely useful for understanding how state changes impacts your application :muscle: :heart_eyes:
@@ -243,7 +305,7 @@ Speaking of dev tools, now that our app has grown a bit, let's give _React dev t
 
 ![](../images/react-devtools02.png)
 
-:pencil2: Open _React dev tools_ in Chrome. Expand the Component Nodes in the main window a bit. Note how you can see each component as it appears in code, with correct props as they appear in code.  
+:pencil2: Open _React dev tools_ in Chrome. Expand the Component Nodes in the main window a bit. Note how you can see each component as it appears in code, with correct props as they appear in code.
 :pencil2: Find the `TodoList` in the tree and select it. Inspect the right-hand panel and note that you can inspect the props it receives in detail. This is very useful when you just want to inspect all props the component actually receives at runtime, and what values they are.
 
 ### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)
