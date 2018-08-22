@@ -172,6 +172,24 @@ export const createTodo = description => ({
 
 > :exclamation: Remember to avoid modifying the existing state/list of todos. You want to create a new list containing copies of the items plus the new todo item.
 
+... your solution should look something like this:
+
+```jsx
+const todosReducer = (todos = defaultTodos, action) => {
+  switch (action.type) {
+    case 'CREATE_TODO': {
+      const newTodoId = todos.length + 1;
+      return [
+        ...todos,
+        new Todo(newTodoId, action.description)
+      ];
+    }
+    default:
+      return todos;
+    }
+};
+```
+
 ### Dispatching actions when a component mounts
 
 The last thing is that we must dispatch actions from an React component when it initially mounts in order to get the todos created. To do that, we need to make use of React's _lifecycle methods_.
