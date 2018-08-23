@@ -2,7 +2,7 @@
 
 This workshop will give a whirlwind tour of React and Redux, demonstrating the core principles and providing a platform to build on.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1yUYziXzROl1q3AbBZkiqujzneW9pF279gfTCnhoXGrM/edit?usp=sharing)
+## [Open presentation slides](https://docs.google.com/presentation/d/1AKCsU4UD0WQdzOA0SFIkN4OzBf35yLoWByBnsvTVqL4/edit?usp=sharing)
 
 ## Focus of this workshop
 We will learn about React and build React components using the well-known Todo application as our use-case. After making a few components and making them render to the screen, we'll install Redux. We'll then move our state over to be handled by Redux and inject it back into React.
