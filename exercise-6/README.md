@@ -41,6 +41,9 @@ At this point we've made some React components, applied some styling, installed 
 Happy hacking!
 
 :pencil2: Create the `AddTodo` React component. It should contain a textbox and a button. When the button is clicked, dispatch the `createTodo` action, sending in the text from the textbox as the description.
+
 :pencil2: Create an _action_ for _deleting a todo item_. In the `TodoItem` component, dispatch that action. Implement a new case in `todosReducer` that handles the delete action.
+
 :pencil2: Create a new `SummaryContainer` component and map the props `todosCount` and `completedTodosCount` to the Redux state. Use the new component in `App.jsx` instead of `<Summary />`.
+
 :pencil2: In `TodoItem`, apply styling so that checked items have a strikethrough effect. You probably need to expand the `Todo` model to make that work.
