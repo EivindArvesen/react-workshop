@@ -16,6 +16,16 @@ Time estimate: 4-6 hours
 -	An text editor that understands JavaScript and React (Atom, Visual Studio Code, Sublime Text, etc). If you're using Atom, you'll need to install the plugin `react` as well.
 -	NodeJS (latest) and npm (latest). Run `node -v` and `npm -v` to check what version you have. Check the latest version at [NodeJS.org](https://nodejs.org/en/) and upgrade if you're out of date.
 
+### Bash (Windows Specifics)
+These steps are known to work on Bash (which comes by default on macOS and most Linux Distros), which is likely your default shell.
+
+On Windows, you'll need to take some extra steps.
+You can either install:
+
+- [Git for Windows](https://gitforwindows.org/), and use the included "Git BASH" tool, or
+- [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot%3aoverviewtab), which (amongst other things) includes Bash.
+
+
 ## How to get started
 
 * Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
@@ -30,6 +40,10 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 4](exercise-4/)
 - [Exercise 5](exercise-5/)
 - [Exercise 6](exercise-6/)
+
+Remember that you can kill the currently active process on your shell by pressing:
+
+<kbd>CTRL</kbd> + <kbd>C</kbd>
 
 ### Symbols and notation used in exercises
 
