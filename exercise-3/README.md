@@ -25,7 +25,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
-  - An delete button which will remove the todo item permanently
+  - A delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
@@ -218,7 +218,7 @@ TodoList.propTypes = {
 };
 ```
 
-The above claims that the `todoItems` prop should always be an array of `Todo`-instances. What is an `Todo`-instance? It's not defined yet, but it'll be a data model representing an todo item. We could use `PropTypes.shape({ foo: 'foo' })` and then define the todo item as a plain object, but for the purposes of this workshop, it's better to explore what _PropTypes_ can do for us.
+The above claims that the `todoItems` prop should always be an array of `Todo`-instances. What is a `Todo`-instance? It's not defined yet, but it'll be a data model representing a todo item. We could use `PropTypes.shape({ foo: 'foo' })` and then define the todo item as a plain object, but for the purposes of this workshop, it's better to explore what _PropTypes_ can do for us.
 
 As you might've noticed, we didn't specify `.isRequired` at the end of the prop types declaration. After all, we could have no todo items in the list. Since we omitted `isRequired`, we must declare a `Component.defaultProps`-object.
 
@@ -391,7 +391,7 @@ TodoItem.propTypes = {
 
 :pencil2: Checking and unchecking the boxes in the browser should now work as expected :ok_hand:
 
-According to our _todo app specifications_, the `TodoItem` component should also include an delete button. Let's just render the button to the screen now and worry about handling deleting an item later.
+According to our _todo app specifications_, the `TodoItem` component should also include a delete button. Let's just render the button to the screen now and worry about handling deleting an item later.
 
 :pencil2: Add the delete button:
 

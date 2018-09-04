@@ -27,7 +27,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
-  - An delete button which will remove the todo item permanently
+  - A delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
@@ -63,7 +63,7 @@ import TodoList from "./TodoList";
 const TodoListContainer = props => <TodoList {...props} />;
 ```
 
-3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects an `todoItems` _prop_ of type array that contains instances of `Todo` class instances.:
+3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects a `todoItems` _prop_ of type array that contains instances of `Todo` class instances.:
 
 ```js
 const mapStateToProps = state => ({
@@ -88,11 +88,11 @@ export default connect(
 Your `App.jsx` will now look like this:
 
 ```jsx
-import React from 'react';
-import Summary from './Summary';
-import TodoListContainer from './TodoListContainer';
+import React from "react";
+import Summary from "./Summary";
+import TodoListContainer from "./TodoListContainer";
 
-import './app.css';
+import "./app.css";
 
 const App = () => (
   <div className="app">
@@ -108,13 +108,13 @@ export default App;
 Your `todosReducer.js` will now look like this:
 
 ```jsx
-import Todo from './Todo';
+import Todo from "./Todo";
 
 const defaultTodos = [
-  new Todo(1, 'Wake up'),
-  new Todo(2, 'Do the dishes'),
-  new Todo(3, 'Fold clothes'),
-  new Todo(4, 'Browse Reddit')
+  new Todo(1, "Wake up"),
+  new Todo(2, "Do the dishes"),
+  new Todo(3, "Fold clothes"),
+  new Todo(4, "Browse Reddit")
 ];
 
 const todosReducer = (todos = defaultTodos, action) => {
@@ -144,12 +144,11 @@ export default connect(
   mapStateToProps,
   null
 )(TodoListContainer);
-
 ```
 
 ## 5.2 - Initial data by dispatching actions
 
-Now that we have moved initial state to Redux, the next goal is to implement the whole Redux chain: Dispatching an `createTodo` action that is received and handled in the reducer and then added to the list and displayed in the GUI.
+Now that we have moved initial state to Redux, the next goal is to implement the whole Redux chain: Dispatching a `createTodo` action that is received and handled in the reducer and then added to the list and displayed in the GUI.
 
 Remember this one-way data flow:
 
@@ -177,16 +176,13 @@ export const createTodo = description => ({
 ```jsx
 const todosReducer = (todos = defaultTodos, action) => {
   switch (action.type) {
-    case 'CREATE_TODO': {
+    case "CREATE_TODO": {
       const newTodoId = todos.length + 1;
-      return [
-        ...todos,
-        new Todo(newTodoId, action.description)
-      ];
+      return [...todos, new Todo(newTodoId, action.description)];
     }
     default:
       return todos;
-    }
+  }
 };
 ```
 
@@ -197,28 +193,33 @@ The last thing is that we must dispatch actions from an React component when it 
 React components have various lifecycle methods (see [this diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) for a visual representation). From the React docs:
 
 > ### The Component Lifecycle
+>
 > Each component has several “lifecycle methods” that you can override to run code at particular times in the process. In the list below, commonly used lifecycle methods are marked as **bold**. The rest of them exist for relatively rare use cases.
 >
 > #### Mounting
->These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
 >
->- **`constructor()`**
->- `static getDerivedStateFromProps()`
->- **`render()`**
->- **`componentDidMount()`**
+> These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+>
+> - **`constructor()`**
+> - `static getDerivedStateFromProps()`
+> - **`render()`**
+> - **`componentDidMount()`**
+>
 > #### Updating
+>
 > An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
 >
->- `static getDerivedStateFromProps()`
->- `shouldComponentUpdate()`
->- **`render()`**
->- `getSnapshotBeforeUpdate()`
->- **`componentDidUpdate()`**
+> - `static getDerivedStateFromProps()`
+> - `shouldComponentUpdate()`
+> - **`render()`**
+> - `getSnapshotBeforeUpdate()`
+> - **`componentDidUpdate()`**
 >
->#### Unmounting
->This method is called when a component is being removed from the DOM:
+> #### Unmounting
 >
->- **`componentWillUnmount()`**
+> This method is called when a component is being removed from the DOM:
+>
+> - **`componentWillUnmount()`**
 
 The most used lifecycle method is `componentDidMount`. Dispatching actions from this method is the recommended way to fetch initial data and do whatever else is needed to get the component up and running.
 
@@ -226,7 +227,7 @@ Remember that we want _stuff related to how things work_ in Container-components
 
 Lifecyle methods can only be implemented in React class components and not in pure components (because a pure component is just a plain function which cannot have additional functions (well functions _can_ have additional functions on them in JavaScript, but thats beside the point - in React context we must use a class component)).
 
-> :bulb: At the time of writing, a [feature proposal called _Hooks_](https://reactjs.org/docs/hooks-intro.html) is being considered for inclusion in React. _Hooks_ will enable you to use React's state and lifecycle features in components  _without writing a class_.
+> :bulb: At the time of writing, a [feature proposal called _Hooks_](https://reactjs.org/docs/hooks-intro.html) is being considered for inclusion in React. _Hooks_ will enable you to use React's state and lifecycle features in components _without writing a class_.
 
 :pencil2: Refactor `TodoListContainer` to be a React class component instead of a pure component:
 

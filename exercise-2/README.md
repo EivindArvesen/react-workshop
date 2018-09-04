@@ -12,7 +12,7 @@
 
 :book: There are two ways to define a React component:
 
-a) As a class that extends the `Component` base class from React (going to call these _class components_ from now on).  
+a) As a class that extends the `Component` base class from React (going to call these _class components_ from now on).
 b) As a pure function that take _props_ as input parameter and returns a view (going to call these _pure components_ from now on).
 
 There are some major differences between the two approaches:
@@ -81,7 +81,7 @@ class Checkout extends Component {
 }
 ```
 
-- We receive `props` as a parameter in both cases. When written as a pure component, we receive props as the first (and only) function argument. When written as a class component, we get props as a object on `this.props`.
+- We receive `props` as a parameter in both cases. When written as a pure component, we receive props as the first (and only) function argument. When written as a class component, we get props as an object on `this.props`.
 
 :book: Props are the values/data sent in to our component from the parent component. For example here we pass `totalAmount` and `address` as props to our inner _Summary_ component:
 
@@ -322,9 +322,16 @@ In this workshop we'll make a simple Todo application.
 
 ### Listing todos
 
+<<<<<<< HEAD
+
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
-  - An delete button which will remove the todo item permanently
+  - # An delete button which will remove the todo item permanently
+
+* There will be a list of todo items. Each todo item will consist of:
+  - A checkbox with the description of the todo
+  - A delete button which will remove the todo item permanently
+    > > > > > > > Fix errors in grammar (a/an)
 
 ### Planning React components
 

@@ -29,7 +29,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
-  - An delete button which will remove the todo item permanently
+  - A delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
@@ -55,7 +55,7 @@ Redux is a _state container_. All state that needs to be shared between componen
 
 Let's say we have an _Add_-button to add a new todo item. Adding this new todo item to the list of todo items would look like this:
 
-1. The function provided to the button's `onClick` handler would trigger an _action_. An action is just an object that has a identifiable `type` and whatever data you need to mutate the state based on that action. For adding a new todo item, we'll need an action that looks like this:
+1. The function provided to the button's `onClick` handler would call an _action_. An action is just an object that has an identifiable `type` and whatever data you need to mutate the state based on that action. For adding a new todo item, we'll need an action that looks like this:
 
 ```js
 const addTodo = description => ({
@@ -73,7 +73,7 @@ function addTodo(description) {
 }
 ```
 
-2. The Redux Store object provides an `dispatch` function. This function _dispatches actions to the store_ (who would've thought!). So now the _store_ receives the `addTodo` action.
+2. The Redux Store object provides a `dispatch` function. This function _dispatches actions to the store_ (who would've thought!). So now the _store_ receives the `addTodo` action.
 3. The _store_ will have a set of _reducers_ connected to it. A _reducer_ is simply a function that is passed in the store's _current state and the new action we dispatched to the store_. A reducer will look like this:
 
 ```js
@@ -92,8 +92,8 @@ A few things to note:
 - The `state` parameter defaults to an empty array. We call this the _default state_ for this reducer.
 - The switch cases can return whatever we want. It's up to us to define _how the action changes the state_.
 - Since this is simply a function that takes the old state, an action, and returns the new state, it's very easy to test, reason about, and debug.
-- There should be absolutely no side-effects in an reducer (i.e no network calls, no filesystem calls, no DOM event triggering, etc). All side effects should be in _actions_. Reducers simply act upon the result of actions and sets a new state based on it.
-- Reducers should _never_ mutate the existing state object that's passed in as parameter. Instead, it should create and clone new state in order to define and return the new state.
+- There should be absolutely no side-effects in a reducer (i.e no network calls, no filesystem calls, no DOM event triggering, etc). All side effects should be in _actions_. Reducers simply act upon the result of actions and sets a new state based on it.
+- Reducers should never mutate the existing state object that's passed in as parameter. Instead, it should create and clone new state in order to define and return the new state.
 - (We would of course put the action types such as `'ADD_TODO'` in constants so they can be reused and refactored safely across actions and reducers).
 
 An implemented reducer for handling new todo items could look like this:
@@ -161,17 +161,17 @@ This function receives `state` as the first parameter. `state` is the entire sta
 
 #### `mapDispatchToProps`
 
-This function receives the `dispatch` function as the first parameter. As mentioned earlier when we explained actions, we use the `dispatch` function to dispatch actions (side effects) to the Redux store. In this example, we _map the `onDeleteTodo`-prop to a function that takes an todo-ID and dispatch the `deleteTodo` action to the store with that ID_.
+This function receives the `dispatch` function as the first parameter. As mentioned earlier when we explained actions, we use the `dispatch` function to dispatch actions (side effects) to the Redux store. In this example, we _map the `onDeleteTodo`-prop to a function that takes a todo-ID and dispatch the `deleteTodo` action to the store with that ID_.
 
 If there are tiny explosions in your head right now, that's ok :) We'll get there!
 
 #### Containers vs. Components
 
-With the introduction of Redux, a naming convention of `FooContainer` and `FooComponent` was suggested by the community in order to separate the glue-logic from the visual DOM elements. Confusingly enough, they opted to use the _Component_ terminology for this as well, even though everything we make in React is already an "React Component"...
+With the introduction of Redux, a naming convention of `FooContainer` and `FooComponent` was suggested by the community in order to separate the glue-logic from the visual DOM elements. Confusingly enough, they opted to use the _Component_ terminology for this as well, even though everything we make in React is already a "React Component"...
 
 The TL;DR version is this:
 
-- _Containers_ are concerned with how things work and connects, and does not render DOM layouts. We typically use this as the example above, to glue React and Redux together, then just pass everything over to an _Component_.
+- _Containers_ are concerned with how things work and connects, and does not render DOM layouts. We typically use this as the example above, to glue React and Redux together, then just pass everything over to a _Component_.
 - _Components_ are concerned with how things look. They are typically as simple and stupid as possible, only receiving data through props and returns JSX.
 
 In this workshop, we'll use the naming conventions used in the workshop authors' work projects. This is not necessarily how you'd see components named everywhere else, or an acknowledged community naming practice. Nonetheless, we find it to be declarative and working well:
