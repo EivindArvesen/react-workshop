@@ -27,7 +27,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
-  - An delete button which will remove the todo item permanently
+  - A delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
@@ -63,7 +63,7 @@ import TodoList from "./TodoList";
 const TodoListContainer = props => <TodoList {...props} />;
 ```
 
-3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects an `todoItems` _prop_ of type array that contains instances of `Todo` class instances.:
+3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects a `todoItems` _prop_ of type array that contains instances of `Todo` class instances.:
 
 ```js
 const mapStateToProps = state => ({
@@ -149,7 +149,7 @@ export default connect(
 
 ## 5.2 - Initial data by dispatching actions
 
-Now that we have moved initial state to Redux, the next goal is to implement the whole Redux chain: Dispatching an `createTodo` action that is received and handled in the reducer and then added to the list and displayed in the GUI.
+Now that we have moved initial state to Redux, the next goal is to implement the whole Redux chain: Dispatching a `createTodo` action that is received and handled in the reducer and then added to the list and displayed in the GUI.
 
 Remember this one-way data flow:
 
@@ -192,7 +192,7 @@ const todosReducer = (todos = defaultTodos, action) => {
 
 ### Dispatching actions when a component mounts
 
-The last thing is that we must dispatch actions from an React component when it initially mounts in order to get the todos created. To do that, we need to make use of React's _lifecycle hooks_.
+The last thing is that we must dispatch actions from a React component when it initially mounts in order to get the todos created. To do that, we need to make use of React's _lifecycle hooks_.
 
 React components have various lifecycle hooks. From the React docs:
 
