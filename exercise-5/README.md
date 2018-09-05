@@ -254,7 +254,7 @@ import { createTodo } from './todoActions';
 /* ... */
 
 const mapDispatchToProps = dispatch => ({
-  createTodoItem: description => dispatch(createTodo(description));
+  createTodoItem: description => dispatch(createTodo(description))
 });
 
 export default connect(
