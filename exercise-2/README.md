@@ -322,16 +322,9 @@ In this workshop we'll make a simple Todo application.
 
 ### Listing todos
 
-<<<<<<< HEAD
-
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
-  - # An delete button which will remove the todo item permanently
-
-* There will be a list of todo items. Each todo item will consist of:
-  - A checkbox with the description of the todo
   - A delete button which will remove the todo item permanently
-    > > > > > > > Fix errors in grammar (a/an)
 
 ### Planning React components
 

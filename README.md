@@ -57,6 +57,10 @@ Remember that you can kill the currently active process on your shell by pressin
 
 <kbd>CTRL</kbd> + <kbd>C</kbd>
 
+Remember that you can kill the currently active process on your shell by pressing:
+
+<kbd>CTRL</kbd> + <kbd>C</kbd>
+
 ### Symbols and notation used in exercises
 
 #### Icons with special meaning
