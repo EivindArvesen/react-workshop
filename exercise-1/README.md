@@ -11,7 +11,7 @@
 
 - Google Chrome.
 - A modern text editor that understands JavaScript and React. For example Atom or Visual Studio Code.
-- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You need to have NodeJS 8.10.0 or later (`node -v`) and npm 5.2.0 or later (`npm -v`) installed.**
+- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You need to have NodeJS 8.10.0 or later (`node -v`) and npm 5.2.0 or later (`npm -v`) installed.** The latest LTS  should be fine.
 
 ## 1.1 Creating a new React application
 
@@ -34,7 +34,7 @@ $ mkdir ~/react-projects
 $ cd ~/react-projects
 ```
 
-> :exclamation: If you already have `create-react-app` installed, check your version and ensure you're on v2 or later (`create-react-app --version` in your terminal). Upgrade your `create-react-app` version by doing `npm i -g create-react-app` in your terminal, then verifying it went ok by doing `--version` again. If you don't have `create-react-app` installed already, then running the next command below will install it for you.
+> :exclamation: If you already have `create-react-app` installed, check your version and ensure you're on v3 or later (`create-react-app --version` in your terminal). Upgrade your `create-react-app` version by doing `npm i -g create-react-app` in your terminal, then verifying it went ok by doing `--version` again. If you don't have `create-react-app` installed already, then running the next command below will install it for you.
 
 :pencil2: Run `npx create-react-app nerdschool-app`. This will create the new React application "nerdschool-app" in the `react-projects`-folder:
 

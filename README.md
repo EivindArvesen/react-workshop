@@ -25,7 +25,7 @@ Since React - and the other libraries we'll use - are libraries for JavaScript, 
   - Extension: [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
   - Extension: [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 - A modern text editor that understands JavaScript and React. We recommend Visual Studio Code but others such as Web Storm and Atom are good choises.
-- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You should have the latest LTS release of NodeJS or later, which (when writing this) is 10.13.0 of node and 6.4.1 of npm. Use `node -v` and `npm -v` to check your version.**
+- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You should have the latest LTS release of NodeJS or later, which (when writing this) is 10.16.0 of node and 6.9.0 of npm. Use `node -v` and `npm -v` to check your version.**
 
 ### Bash (Windows Specifics)
 These steps are known to work on Bash (which comes by default on macOS and most Linux Distros), which is likely your default shell.
@@ -34,7 +34,7 @@ On Windows, you'll need to take some extra steps.
 You can either install:
 
 - [Git for Windows](https://gitforwindows.org/), and use the included "Git BASH" tool, or
-- [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot%3aoverviewtab), which (amongst other things) includes Bash.
+- [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot%3aoverviewtab), which (amongst other things) includes Bash. 
 
 
 ## How to get started
@@ -52,10 +52,6 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 4 - Redux](exercise-4/)
 - [Exercise 5 - Using Redux](exercise-5/)
 - [Exercise 6 - Completing the app](exercise-6/)
-
-Remember that you can kill the currently active process on your shell by pressing:
-
-<kbd>CTRL</kbd> + <kbd>C</kbd>
 
 Remember that you can kill the currently active process on your shell by pressing:
 
