@@ -83,6 +83,10 @@ class Checkout extends Component {
 
 - We receive `props` as a parameter in both cases. When written as a function component, we receive props as the first (and only) function argument. When written as a class component, we get props as an object on `this.props`.
 
+  > :bulb: Class components can also extend `PureComponent`instead of `Component` ; These components are known as _pure components_. The only difference between the class components we saw earlier and pure components is that the former doesn't implement `shouldComponentUpdate()`, but the latter implements it witth a shallow prop and state comparison.
+  >
+  > In short: If your React component’s `render()` function renders the same result given the same props and state, you can use `PureComponent` for a performance boost in some cases. 
+
 :book: Props are the values/data sent in to our component from the parent component. For example here we pass `totalAmount` and `address` as props to our inner _Summary_ component:
 
 ```jsx
