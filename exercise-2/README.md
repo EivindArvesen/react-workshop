@@ -12,17 +12,17 @@
 
 :book: There are two ways to define a React component:
 
-a) As a class that extends the `Component` base class from React (going to call these _class components_ from now on).
-b) As a pure function that take _props_ as input parameter and returns a view (going to call these _pure components_ from now on).
+a) As a class that extends the `Component` (or `PureComponent`) base class from React – We're going to call these _class components_ from now on.
+b) As a pure function that take _props_ as input parameter and returns a view – We're going to call these _function components_ from now on.
 
 There are some major differences between the two approaches:
 
-- A class component can have _internal state_, a pure component cannot.
-- A class component can have _lifecycle hooks/methods_, a pure component cannot.
-- A class component _must_ have a `render` method. This method _must_ return a view. A pure component is itself the render function and must also return a view.
-- A pure component is only a simple function that takes data in and returns a view.
-- A pure component is faster and simpler to reason about. It's faster because the React algorithm that tries to make smart decisions about what components has changed since the last render cycle and must be swapped, can make a lot of assumptions about how the component might and might not have changed. The runtime can make a lot fewer checks and safeguards to reach it's conclusion.
-- We prefer pure components over class components wherever possible, as they are simpler to understand, faster at runtime, and less code to write. Class components are not bad or undesirable, just not as lightweight and elegant.
+- A class component can have _internal state_, a function component cannot.
+- A class component can have _lifecycle hooks/methods_, a function component cannot.
+- A class component _must_ have a `render` method. This method _must_ return a view. A function component is itself the render function and must also return a view.
+- A function component is only a simple function that takes data in and returns a view.
+- A function component is faster and simpler to reason about. It's faster because the React algorithm that tries to make smart decisions about what components has changed since the last render cycle and must be swapped, can make a lot of assumptions about how the component might and might not have changed. The runtime can make a lot fewer checks and safeguards to reach it's conclusion.
+- We prefer function components over class components wherever possible, as they are simpler to understand, faster at runtime, and less code to write. Class components are not bad or undesirable, just not as lightweight and elegant.
 
 ### Components in code
 
@@ -43,7 +43,7 @@ There are some major differences between the two approaches:
 
 #### JSX examples
 
-:book: A simple React component, written as a pure component may look like this:
+:book: A simple React component, written as a function component may look like this:
 
 ```jsx
 const Checkout = props => (
@@ -53,7 +53,7 @@ const Checkout = props => (
 );
 ```
 
-:book: If the above function syntax looks funny to you, here's a more familiar version of the same:
+:book: If the [above function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) looks funny to you, here's a more familiar version of the same:
 
 ```jsx
 function Checkout(props) {
@@ -81,7 +81,7 @@ class Checkout extends Component {
 }
 ```
 
-- We receive `props` as a parameter in both cases. When written as a pure component, we receive props as the first (and only) function argument. When written as a class component, we get props as an object on `this.props`.
+- We receive `props` as a parameter in both cases. When written as a function component, we receive props as the first (and only) function argument. When written as a class component, we get props as an object on `this.props`.
 
 :book: Props are the values/data sent in to our component from the parent component. For example here we pass `totalAmount` and `address` as props to our inner _Summary_ component:
 
@@ -98,7 +98,7 @@ class Checkout extends Component {
 
 The `Summary` component will now be able to read these values from `this.props.totalAmount` and `this.props.address`.
 
-> :bulb: The `render()` method is a mandatory convention. All React class components _must_ have a `render()` method. If your component does not render a view (which is sometimes the case), render can return `null`, but it must be implemented and return something. When writing pure components, the whole component is itself the render function and it must return a JSX view (or null).
+> :bulb: The `render()` method is a mandatory convention. All React class components _must_ have a `render()` method. If your component does not render a view (which is sometimes the case), render can return `null`, but it must be implemented and return something. When writing function components, the whole component is itself the render function and it must return a JSX view (or null).
 
 Still with us? Sure hope so!
 
@@ -108,7 +108,7 @@ Found a precise enactment of what it feels like getting through this exercise:
 
 #### Internal state
 
-:book: Class components can have _internal state_ in addition to having props sent in. Knowing when to use _internal state_ vs _having state passed into the component from the outside via props_ (for example via state containers such as Redux, which we're going to use) is one of the challenges when you're new to React.
+:book: Class components can have _internal state_ in addition to having props sent in. Knowing when to use _internal state_ vs _having state passed into the component from the outside via props_ (for example via state containers such as Redux, which we're going to use later) is one of the challenges when you're new to React.
 
 Here's an example where we have the state of a counter as internal state:
 
@@ -216,6 +216,8 @@ If `totalAmount` is not set by the caller, we can now be certain its value will 
 
 We'll explore Prop Types more as we go along.
 
+> :bulb: Note that if you were to use TypeScript in your project, Prop Types would be redundant – and  thus unnecessary.
+
 Oh by the way - here's you, writing React code on the next exercise!
 
 <img src="../images/cats/cat1.gif" width="400" />
@@ -288,7 +290,7 @@ const Checkout = props => (
 );
 ```
 
-Or like this:
+Or like this (using the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)):
 
 ```jsx
 const Checkout = props => {
