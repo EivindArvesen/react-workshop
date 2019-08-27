@@ -2,7 +2,7 @@
 
 ## In this exercise you will learn to:
 
-- Create React components using pure functions or pure components.
+- Create React components using function components.
 - Use Prop Types to be explicit about what data types and shape your component is expecting as _props_.
 
 ## Reminder: Todo app spec
@@ -45,7 +45,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 :pencil2: Open `App.js` and remove all of its content.
 :pencil2: All React components must import React in order to run, so start by adding the line `import React from 'react';`.
-:pencil2: Let's assume we only need App as a pure component and add the following:
+:pencil2: Let's assume we only need App to be a function component and add the following:
 
 ```jsx
 const App = () => (
@@ -55,7 +55,7 @@ const App = () => (
 );
 ```
 
-> :bulb: Unless we know for sure we'll need lifecycle methods, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
+> :bulb: Unless we know for sure we'll need lifecycle methods, we tend to start new components as function components and convert to class component if it turns out we need more complexity.
 
 :pencil2: Then we need to finish up by exporting the component out of the module: `export default App;`
 
@@ -116,7 +116,7 @@ const Summary = ({ todosCount, completedTodosCount }) => (
 There's a few things going on here:
 
 - We added some class names which we haven't defined yet. We'll use the [BEM](http://getbem.com/naming/) naming convention for SASS classes here. We won't cover BEM in detail, but feel free to read up on it - it'll take you 3 minutes.
-- We used a fancy syntax to write text to the screen. The backticks-dollar-curly thing is the (relative) new JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) feature. We wrap it in another set of curly brackets because this is plain JavaScript and not JSX and as discussed in exercise 2, we use curly brackets inside JSX evertime we want to write JavaScript inline.
+- We used a fancy syntax to write text to the screen. The backticks-dollar-curly thing is the (relatively) new JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) feature. We wrap it in another set of curly brackets because this is plain JavaScript and not JSX and as discussed in exercise 2, we use curly brackets inside JSX evertime we want to write JavaScript inline.
 
 :pencil2: To finish of the Summary component for now, we need to add prop type validation to our props:
 
@@ -220,7 +220,7 @@ TodoList.propTypes = {
 
 The above claims that the `todoItems` prop should always be an array of `Todo`-instances. What is a `Todo`-instance? It's not defined yet, but it'll be a data model representing a todo item. We could use `PropTypes.shape({ foo: 'foo' })` and then define the todo item as a plain object, but for the purposes of this workshop, it's better to explore what _PropTypes_ can do for us.
 
-As you might've noticed, we didn't specify `.isRequired` at the end of the prop types declaration. After all, we could have no todo items in the list. Since we omitted `isRequired`, we must declare a `Component.defaultProps`-object.
+As you might've noticed, we didn't specify `.isRequired` at the end of the prop types declaration. After all, we could have no todo items in the list. Since we omitted `isRequired`, we must declare a `Component.defaultProps`-object, which sets a default value for  the list.
 
 :pencil2: Add the following:
 
