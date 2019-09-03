@@ -399,7 +399,7 @@ According to our _todo app specifications_, the `TodoItem` component should also
 <div>
   <input type="checkbox" id={`todoItemCheckbox-${id}`} />
   <label htmlFor={`todoItemCheckbox-${id}`}>{description}</label>
-  <input type="button" value="Delete" />
+  <button type="button">Delete</button>
 </div>
 ```
 
