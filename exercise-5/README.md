@@ -1,4 +1,4 @@
-# Exercise 4 - Redux
+# Exercise 5 - Redux
 
 ## In this exercise you will learn:
 
@@ -39,7 +39,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 1. `TodoList`. Will contain the list for all todo items.
 1. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
 
-## 4.1 - Redux in a hurry
+## 5.1 - Redux in a hurry
 
 > :exclamation: Please just read this section. We'll implement the examples into our app in the next sections.
 
@@ -192,7 +192,7 @@ const TodoListContainer = props => <TodoList {...props} />;
 
 This way we don't have to specify PropTypes validation, and we reduce boilerplate when adding new props in `mapState(..)` or `mapDispatch(..)`. This is, however, considered an anti-pattern by the community because it makes the code less explicit and harder to debug.
 
-## 4.2 - Installing Redux in our app
+## 5.2 - Installing Redux in our app
 
 `create-react-app` does not include Redux by default so we'll need to install it.
 
