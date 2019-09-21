@@ -1,12 +1,12 @@
 # Introduction to React
 
-This workshop will give a whirlwind tour of React and Redux, demonstrating the core principles and providing a platform to build on.
+This workshop will give a whirlwind tour of React, state management and Redux, demonstrating the core principles and providing a platform to build on.
 
 ## [Open presentation slides](https://docs.google.com/presentation/d/1AKCsU4UD0WQdzOA0SFIkN4OzBf35yLoWByBnsvTVqL4/edit?usp=sharing)
 
 ## Focus of this workshop
 
-We will learn about React and build React components using the well-known Todo application as our use-case. After making a few components and making them render to the screen, we'll install Redux. We'll then move our state over to be handled by Redux and inject it back into React.
+We will learn about React and build React components using the well-known Todo application as our use-case. After making a few components and making them render to the screen, we'll use hooks to add state to our components, and then install Redux. We'll then add more state to be handled by Redux and inject it back into React.
 
 Time estimate: 4-6 hours
 
@@ -16,42 +16,42 @@ Compared to other Nerdschool workshops, this one is considerably more advanced.
 
 Since React - and the other libraries we'll use - are libraries for JavaScript, there is an expectation that you have a fair understanding of:
 
-- JavaScript
-- Web development (you know how request/response works and have used Chrome Developer Tools (F12) or similar).
+-   JavaScript
+-   Web development (you know how request/response works and have used Chrome Developer Tools (F12) or similar).
 
 ## What you need
 
-- Google Chrome
-  - Extension: [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-  - Extension: [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
-- A modern text editor that understands JavaScript and React. We recommend Visual Studio Code but others such as Web Storm and Atom are good choises.
-- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You should have the latest LTS release of NodeJS or later, which (when writing this) is 10.16.0 of node and 6.9.0 of npm. Use `node -v` and `npm -v` to check your version.**
+-   Google Chrome
+    -   Extension: [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+    -   Extension: [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+-   A modern text editor that understands JavaScript and React. We recommend Visual Studio Code but others such as Web Storm and Atom are good choises.
+-   [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You should have the latest LTS release of NodeJS or later, which (when writing this) is 10.16.0 of node and 6.9.0 of npm. Use `node -v` and `npm -v` to check your version.**
 
 ### Bash (Windows Specifics)
+
 These steps are known to work on Bash (which comes by default on macOS and most Linux Distros), which is likely your default shell.
 
 On Windows, you'll need to take some extra steps.
 You can either install:
 
-- [Git for Windows](https://gitforwindows.org/), and use the included "Git BASH" tool, or
-- [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot%3aoverviewtab), which (amongst other things) includes Bash. 
-
+-   [Git for Windows](https://gitforwindows.org/), and use the included "Git BASH" tool, or
+-   [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot%3aoverviewtab), which (amongst other things) includes Bash.
 
 ## How to get started
 
-- Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
-- Although you have this `README.md` file on your computer it's easier to read it on GitHub, so we recommend you keep this page open with the exercise tasks.
+-   Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
+-   Although you have this `README.md` file on your computer it's easier to read it on GitHub, so we recommend you keep this page open with the exercise tasks.
 
 ## Exercises
 
 This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise.
 
-- [Exercise 1 - Getting started](exercise-1/) (start here)
-- [Exercise 2 - React components](exercise-2/)
-- [Exercise 3 - React](exercise-3/)
-- [Exercise 4 - Redux](exercise-4/)
-- [Exercise 5 - Using Redux](exercise-5/)
-- [Exercise 6 - Completing the app](exercise-6/)
+-   [Exercise 1 - Getting started](exercise-1/) (start here)
+-   [Exercise 2 - React components](exercise-2/)
+-   [Exercise 3 - React](exercise-3/)
+-   [Exercise 4 - Redux](exercise-4/)
+-   [Exercise 5 - Using Redux](exercise-5/)
+-   [Exercise 6 - Completing the app](exercise-6/)
 
 Remember that you can kill the currently active process on your shell by pressing:
 

@@ -36,30 +36,30 @@ $ cd ~/react-projects
 
 > :exclamation: If you already have `create-react-app` installed, check your version and ensure you're on v3 or later (`create-react-app --version` in your terminal). Upgrade your `create-react-app` version by doing `npm i -g create-react-app` in your terminal, then verifying it went ok by doing `--version` again. If you don't have `create-react-app` installed already, then running the next command below will install it for you.
 
-:pencil2: Run `npx create-react-app nerdschool-app`. This will create the new React application "nerdschool-app" in the `react-projects`-folder:
+:pencil2: Run `npx create-react-app bouvet-react-app`. This will create the new React application "bouvet-react-app" in the `react-projects`-folder:
 
 (`npx` is a [package runner tool that comes with >npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).)
 
 ```bash
-$ npx create-react-app nerdschool-app
+$ npx create-react-app bouvet-react-app
 npx: installed 63 in 5.715s
 
-Creating a new React app in /Users/nerdschool/react-projects/nerdschool-app.
+Creating a new React app in /Users/nerdschool/react-projects/bouvet-react-app.
 
 Installing packages. This might take a couple of minutes.
 Installing react, react-dom, and react-scripts...
 ...
-Success! Created nerdschool-app at /Users/nerdschool/react-projects/nerdschool-app
+Success! Created bouvet-react-app at /Users/nerdschool/react-projects/bouvet-react-app
 ```
 
-:pencil2: Run `npm start` from the `nerdschool-app` folder to start the app in your browser:
+:pencil2: Run `npm start` from the `bouvet-react-app` folder to start the app in your browser:
 
 ```bash
-$ cd nerdschool-app
+$ cd bouvet-react-app
 $ npm start
 Compiled successfully!
 
-You can now view nerdschool-app in the browser.
+You can now view bouvet-react-app in the browser.
 
   Local:            http://localhost:3000/
   On Your Network:  http://192.168.1.129:3000/
@@ -76,9 +76,9 @@ A new browser window should start showing the default page:
 
 ### :book: Inspecting the generated files and folders
 
-:book: Open the `nerdschool-app` folder in your code editor.
+:book: Open the `bouvet-react-app` folder in your code editor.
 
-A simple folder structure was created by `create-react-app` inside the `nerdschool-app` folder:
+A simple folder structure was created by `create-react-app` inside the `bouvet-react-app` folder:
 
 ```bash
 ├── README.md
@@ -181,7 +181,7 @@ For our purposes this means that when we change a React component while `npm sta
 Let's try it out.
 
 :pencil2: Make sure you have `npm start` running and a browser window open at [http://localhost:3000/](http://localhost:3000/). Put this window and your code editor side-by-side so you can see both at the same time.  
-:pencil2: Open `src/App.js` and insert a new line at line 11 (over the `<p>` tag) with the following code: `<h1>Welcome to nerdschool</h1>`. Save the file.  
+:pencil2: Open `src/App.js` and insert a new line at line 11 (over the `<p>` tag) with the following code: `<h1>Welcome to React</h1>`. Save the file.  
 :book: Notice how the text in the webpage changed immediately without having to refresh the window.
 
 As you might've guessed, this rapid feedback loop will soon become very addictive :)
