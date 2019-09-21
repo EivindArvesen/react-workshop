@@ -17,10 +17,9 @@ b) As a pure function that take _props_ as input parameter and returns a view â€
 
 There are some major differences between the two approaches:
 
-- A class component can have _internal state_, a function component cannot.
-- A class component can have _lifecycle hooks/methods_, a function component cannot.
+- A class component can have internal state and uses _setState_ for editing state, while a function component can have state with the help of the _useState hook_.
+- A class component can use the _react class lifecycle methods_, while a function component can use hooks (like _useEffect_) to perform side effects.
 - A class component _must_ have a `render` method. This method _must_ return a view. A function component is itself the render function and must also return a view.
-- A function component is only a simple function that takes data in and returns a view.
 - A function component is faster and simpler to reason about. It's faster because the React algorithm that tries to make smart decisions about what components has changed since the last render cycle and must be swapped, can make a lot of assumptions about how the component might and might not have changed. The runtime can make a lot fewer checks and safeguards to reach it's conclusion.
 - We prefer function components over class components wherever possible, as they are simpler to understand, faster at runtime, and less code to write. Class components are not bad or undesirable, just not as lightweight and elegant.
 
