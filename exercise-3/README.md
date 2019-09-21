@@ -214,38 +214,8 @@ Next, we need to add `todoItems` to prop types.
 
 ```jsx
 TodoList.propTypes = {
-  todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo))
+  todoItems: PropTypes.array
 };
-```
-
-The above claims that the `todoItems` prop should always be an array of `Todo`-instances. What is a `Todo`-instance? It's not defined yet, but it'll be a data model representing a todo item. We could use `PropTypes.shape({ foo: 'foo' })` and then define the todo item as a plain object, but for the purposes of this workshop, it's better to explore what _PropTypes_ can do for us.
-
-As you might've noticed, we didn't specify `.isRequired` at the end of the prop types declaration. After all, we could have no todo items in the list. Since we omitted `isRequired`, we must declare a `Component.defaultProps`-object, which sets a default value for  the list.
-
-:pencil2: Add the following:
-
-```jsx
-TodoList.defaultProps = {
-  todoItems: []
-};
-```
-
-Now we are guaranteed to always have at least an empty array provided as `todoItems` if that prop is never specified by the consumer of this component.
-
-We still need to declare what the `Todo` model is.
-
-:pencil2: Add the import `import Todo from './Todo'`.
-:pencil2: Then create the file `Todo.js` with the content:
-
-```js
-class Todo {
-  constructor(id, description) {
-    this.id = id;
-    this.description = description;
-  }
-}
-
-export default Todo;
 ```
 
 The content in `TodoList.js` should now look like this:
@@ -254,7 +224,6 @@ The content in `TodoList.js` should now look like this:
 import React from "react";
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem";
-import Todo from "./Todo";
 
 const TodoList = ({ todoItems }) => (
   <div>
@@ -269,7 +238,7 @@ TodoList.defaultProps = {
 };
 
 TodoList.propTypes = {
-  todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo))
+  todoItems: PropTypes.array
 };
 
 export default TodoList;
@@ -318,12 +287,23 @@ const App = () => (
     <h1>My Todo App</h1>
     <Summary todosCount={5} completedTodosCount={3} />
     <TodoList
-      todoItems={[
-        new Todo(1, "Wake up"),
-        new Todo(2, "Do the dishes"),
-        new Todo(3, "Fold clothes"),
-        new Todo(4, "Browse Reddit")
-      ]}
+     todoItems={[
+                {
+                    id: 1,
+                    description: "Check Reddit",
+                    isCompleted: true
+                },
+                {
+                    id: 2,
+                    description: "Water plants",
+                    isCompleted: false
+                },
+                {
+                    id: 3,
+                    description: "Build a todo app in React",
+                    isCompleted: false
+                }
+            ]}
     />
   </div>
 );
@@ -364,7 +344,7 @@ const TodoItem = ({ id, description }) => (
 
 TodoItem.propTypes = {
   /* ... */
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 ```
 
