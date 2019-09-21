@@ -289,17 +289,17 @@ const App = () => (
     <TodoList
      todoItems={[
                 {
-                    id: 1,
+                    id: "_xss6p50dk",
                     description: "Check Reddit",
                     isCompleted: true
                 },
                 {
-                    id: 2,
+                    id: "_alqv4d8mp",
                     description: "Water plants",
                     isCompleted: false
                 },
                 {
-                    id: 3,
+                    id: "_s7nx464tr",
                     description: "Build a todo app in React",
                     isCompleted: false
                 }
