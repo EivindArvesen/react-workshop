@@ -324,7 +324,7 @@ The problem is on this line in `TodoList.jsx`: `<TodoItem description={todoItem.
 {
   todoItems.map(todoItem => (
     <TodoItem key={todoItem.id} description={todoItem.description} />
-  ));
+  ))
 }
 ```
 
