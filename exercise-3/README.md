@@ -280,7 +280,6 @@ export default TodoItem;
 import React from "react";
 import Summary from "./Summary";
 import TodoList from "./TodoList";
-import Todo from "./Todo";
 
 const App = () => (
   <div>
