@@ -342,8 +342,8 @@ const TodoItem = ({ id, description }) => (
 /* ... */
 
 TodoItem.propTypes = {
-  /* ... */
-  id: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 ```
 
