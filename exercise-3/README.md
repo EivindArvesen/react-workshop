@@ -269,9 +269,9 @@ export default TodoItem;
 :pencil2: Back in `TodoList`, make sure to send in `description`:
 
 ```jsx
-{
-  todoItems.map(todoItem => <TodoItem description={todoItem.description} />);
-}
+{todoItems.map(todoItem =>
+  <TodoItem description={todoItem.description} />
+)}
 ```
 
 :pencil2: Then in `App.js`, _import_ and use the `TodoList` component, using some mockdata for now:
