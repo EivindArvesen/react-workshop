@@ -4,3 +4,7 @@
   justify-content: space-between;
   margin-bottom: 5px;
 }
+
+.todo-item__line {
+  display: inline-block;
+}
