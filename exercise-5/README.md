@@ -194,21 +194,19 @@ This way we don't have to specify PropTypes validation, and we reduce boilerplat
 
 `create-react-app` does not include Redux by default so we'll need to install it.
 
-:pencil2: Stop the web server running the todo app and install `redux`, `react-redux` and `redux-thunk`:
+:pencil2: Stop the web server running the todo app and install `redux`, `react-redux`:
 
 ```bash
-$ npm install redux react-redux redux-thunk
+$ npm install redux react-redux
 ```
 
 - `redux` is the main Redux library.
 - `react-redux` is a helper library providing glue between React and Redux.
-- `redux-thunk` is a middleware library used for creating _async actions_. We'll explain this one later.
 
 :pencil2: Create the new file `reduxStore.js` and copy & paste the following content:
 
 ```js
-import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
+import { createStore, compose } from "redux";
 import rootReducer from "./rootReducer";
 
 const initialState = {};
@@ -225,7 +223,6 @@ if (process.env.NODE_ENV === "development") {
 
 // Create and pass in all middleware we'll use. In our case, only 'redux-thunk'.
 const composedEnhancers = compose(
-  applyMiddleware(thunk),
   ...enhancers
 );
 
@@ -244,7 +241,7 @@ import { combineReducers } from "redux";
 import todosReducer from "./todosReducer";
 
 export default combineReducers({
-  todos: todosReducer
+  archivedtodos: todosReducer
 });
 ```
 
@@ -255,14 +252,14 @@ Let's create our reducer next.
 :pencil2: Create the new file `todosReducer.js` with the following content:
 
 ```js
-const todosReducer = (todos = [], action) => {
-  switch (action.type) {
-    default:
-      return todos;
-  }
-};
-
-export default todosReducer;
+const todosReducer = (archivedTodos = [], action) => {
+    switch (action.type) {
+      default:
+        return archivedTodos;
+    }
+  };
+  
+  export default todosReducer;
 ```
 
 The last piece is to initialize Redux when the app starts (i.e. make sure the `createStore` function in `reduxStore` is called on startup).
@@ -297,11 +294,11 @@ In exercise 1 we installed the browser extension _Redux dev tools_. Let's see wh
 
 A rather complex-looking window should appear. If it says something like "Could not find local Redux store", something is wrong with your setup and you should contact an instructor. Most likely, something is wrong in `reduxStore.js`.
 
-![](../images/redux-dev-tools.png)
+![](../images/redux-dev-tools1.png)
 
 The left-side panel (red) is a list of all actions that has been dispatched to the store. We'll explore this is in more detail when we implement actions.
 
-The right-side panel (blue) displays the state. At the moment we have just defined an empty list of `todos` (remember, in `todosReducer`, we set the default reducer state to an empty array: `todos = []`, and in `rootReducer` we mapped the `todos`-property to the `todosReducer`, thus creating the _node in the state tree_ `todos: []`). Note the `Tree`, `Chart`, and `Raw` tabs. We'll just use the `Tree`-view, but others may be interesting with big applications.
+The right-side panel (blue) displays the state. At the moment we have just defined an empty list of `archivedTodos` (remember, in `todosReducer`, we set the default reducer state to an empty array: `archivedTodos = []`, and in `rootReducer` we mapped the `archivedTodos`-property to the `todosReducer`, thus creating the _node in the state tree_ `archivedTodos: []`). Note the `Tree`, `Chart`, and `Raw` tabs. We'll just use the `Tree`-view, but others may be interesting with big applications.
 
 The top-right button group (green) toggles between viewing the details of an action (that you select in the left-hand list), showing the state-tree (current, and default view), and inspecting the diff between the old and new state caused by an action.
 
