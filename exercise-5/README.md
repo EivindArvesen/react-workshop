@@ -305,5 +305,46 @@ The buttons at the bottom are for special and advanced use cases and can be safe
 
 We'll explore this extension more as we go along. For now, let's get on with our app.
 
+## 5.2 - Moving the ArchivedTodo list to Redux
+
+Our state exists in Redux but we have yet to connect that state to our React components. We will reuse the todoList and the todoItem components to render our archivedTodo list.
+
+:pencil2: Create a new file `ArchivedTodoListContainer.jsx`.
+
+Let's write it out step by step.
+
+1.  :pencil2: Import React and the magic glue from Redux to connect the state with the component. We also need our _Component_ that knows how to render out the todo list:
+
+```jsx
+import React from "react";
+import { connect } from "react-redux";
+import TodoList from "./TodoList";
+```
+
+2.  :pencil2: Next, we create the _Container_-component:
+
+```jsx
+const ArchivedTodoListContainer = props => <TodoList {...props} />;
+```
+
+3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects a `todoItems` _prop_ of type array that contains instances of `Todo` class instances. To make TodoList render our archivedTodo list we need to pass archivedTodos.:
+
+```js
+const mapStateToProps = state => ({
+  todoItems: state.archivedTodos
+});
+```
+
+4.  :pencil2: Next, we _connect_ the _ArchivedTodoListContainer_ and the _mapStateToProps_ together. Note that we just pass `null` as `mapDispatchToProps` because we don't have any functions to connect yet. You can leave the parameter unset/undefined if you want.
+
+```jsx
+export default connect(
+  mapStateToProps,
+  null
+)(ArchivedTodoListContainer);
+```
+
+5.  :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our _App_. Open _App.jsx_ and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as `<ArchivedTodoListContainer />`.
+
 
 ### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)
