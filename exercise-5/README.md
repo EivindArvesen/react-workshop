@@ -43,11 +43,9 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 > :exclamation: Please just read this section. We'll implement the examples into our app in the next sections.
 
-At the moment our application is only a composition of visual elements. All data so far is hard-coded into our app. Unfortunately, any real-world app needs to handle data, and there are many, many ways of approaching this problem.
+As an application grows bigger, managing states shared across components becomes a chore. This is where state management tools like Redux come in handy. Redux has nothing to do with React and can be used with Angular and other SPA frameworks, or alone. However, because of it's event-like, one-directional handling of state mutation, it is a particularly good fit with React.
 
-Redux is currently one of the most popular solutions. It has nothing to do with React and can be used with Angular and other SPA frameworks, or alone. However, because of it's event-like, one-directional handling of state mutation, it is a particularly good fit with React.
-
-Redux is a _state container_. All state that needs to be shared between components in our application will live and be maintained in Redux. Remember that React also has built-in internal state in class components. Sometimes, all you need is internal state, in which case you should use that mechanism and not Redux. Learning when to use which mechanism is one of the learning curves with this stack.
+Redux is a _state container_. All state that needs to be shared between components in our application will live and be maintained in Redux. Remember that React also has built-in internal state in class components. Sometimes, all you need is internal state, in which case you should use that mechanism and not Redux.
 
 ### Understanding Redux
 
