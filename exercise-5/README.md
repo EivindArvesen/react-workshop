@@ -346,5 +346,31 @@ export default connect(
 
 5.  :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our _App_. Open _App.jsx_ and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as `<ArchivedTodoListContainer />`.
 
+## 5.3 - Initial data by dispatching actions
+
+Our next goal is to implement the whole Redux chain: Dispatching a `archiveTodo` action that is received and handled in the reducer and then added to the archivedTodo list and displayed in the GUI.
+
+Remember this one-way data flow:
+
+![](../images/redux03.png)
+
+The first step, so we can slowly get familiar with Redux, is to dispatch one `archiveTodo` action for each todo we want to archive.
+
+:pencil2: Create a new file `todoActions.js`.
+:pencil2: Create the `archiveTodo` action:
+
+```js
+export const archiveTodo = description => ({
+  type: "ARCHIVE_TODO",
+  description
+});
+```
+
+:pencil2: Open `todosReducer.js` and add a new `case` that handles the `ARCHIVE_TODO` action type.
+
+
+## :exclamation: Fortsett her med å implementere `ARCHIVE_TODO`action -> legg til todo-en i archivedTodo listen
+
+
 
 ### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)
