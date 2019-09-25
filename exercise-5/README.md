@@ -203,6 +203,12 @@ $ npm install redux react-redux
 - `redux` is the main Redux library.
 - `react-redux` is a helper library providing glue between React and Redux.
 
+Now we want to use Redux to create a archivedTodo list. 
+
+:pencil2: Create a 'Move to archive' button next to the delete button in `TodoItem.jsx`. When this button is clicked it should remove the todoItem from the current list. 
+
+Our goal is to move this todoItem from our current list to our new archivedTodo list with the help of Redux.
+
 :pencil2: Create the new file `reduxStore.js` and copy & paste the following content:
 
 ```js
