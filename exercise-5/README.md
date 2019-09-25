@@ -221,7 +221,6 @@ if (process.env.NODE_ENV === "development") {
   }
 }
 
-// Create and pass in all middleware we'll use. In our case, only 'redux-thunk'.
 const composedEnhancers = compose(
   ...enhancers
 );
