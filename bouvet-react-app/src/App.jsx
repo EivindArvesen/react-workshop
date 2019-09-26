@@ -24,12 +24,12 @@ const App = () => {
 	  <div className="app">
 	    <h1>My Todo App</h1>
 	    <Summary todosCount={5} completedTodosCount={3} />
+	    <AddTodo addTodo={addTodo} todos={todos}/>
 	    <TodoList
 				theme={themes.light}
 				todoItems={todos}
 				removeTodo={removeTodo}
 	    />
-	    <AddTodo addTodo={addTodo} todos={todos}/>
 	  </div>
   )
 };
