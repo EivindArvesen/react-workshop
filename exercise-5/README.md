@@ -375,7 +375,7 @@ export const archiveTodo = description => ({
 :pencil2: Open `todosReducer.js` and add a new `case` that handles the `ARCHIVE_TODO` action type.
 
 
-## :exclamation: Fortsett her med å implementere `ARCHIVE_TODO`action -> legg til todo-en i archivedTodo listen
+## :exclamation: Fortsett her med å implementere `ARCHIVE_TODO`action -> legg til todo-en i archivedTodo listen (og slett fra gammel liste)
 
 
 
