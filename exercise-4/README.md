@@ -142,7 +142,7 @@ const AddTodo = ({ addTodo }) => {
 export default AddTodo;
 ```
 
-:pencil2: Now go back to `App.jsx` and import *AddTodo*. Then add the _AddTodo_ component below _TodoList_ in your return statement passing in the _addTodo_ function and the _todos_ as props:
+:pencil2: Now go back to `App.jsx` and import *AddTodo*. Then add the _AddTodo_ component above _TodoList_ in your return statement passing in the _addTodo_ function and the _todos_ as props:
 ```js
 <AddTodo addTodo={addTodo} todos={todos}/>
 ```
@@ -194,8 +194,8 @@ const App = () => {
         <div className="app">
             <h1>My Todo App</h1>
             <Summary todosCount={5} completedTodosCount={2} />
+      			<AddTodo addTodo={addTodo} todos={todos} />
             <TodoList todoItems={todos} removeTodo={removeTodo} />
-            <AddTodo addTodo={addTodo} todos={todos} />
         </div>
     );
 };
