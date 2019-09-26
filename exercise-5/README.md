@@ -299,7 +299,7 @@ In exercise 1 we installed the browser extension _Redux dev tools_. Let's see wh
 
 A rather complex-looking window should appear. If it says something like "Could not find local Redux store", something is wrong with your setup and you should contact an instructor. Most likely, something is wrong in `reduxStore.js`.
 
-![](../images/redux-dev-tools1.png)
+![](../images/redux-dev-tools.png)
 
 The left-side panel (red) is a list of all actions that has been dispatched to the store. We'll explore this is in more detail when we implement actions.
 
