@@ -194,7 +194,7 @@ This way we don't have to specify PropTypes validation, and we reduce boilerplat
 
 `create-react-app` does not include Redux by default so we'll need to install it.
 
-:pencil2: Stop the web server running the todo app and install `redux`, `react-redux`:
+:pencil2: Stop the web server running the todo app and install `redux` and `react-redux`:
 
 ```bash
 $ npm install redux react-redux
