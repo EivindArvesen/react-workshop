@@ -56,7 +56,7 @@ const [thing, setThing] = usestate('defaultThing')
 Where _thing_ is the value of the state, _setThing_ gives us a function to update the state, and _defaultThing_ is whatever you pass to useState as a default value - this can be a string, an empty array etc., but it should have a value.
 
 ### 4.1.1 Initiate state
-:book: We want to add state for our _todos_. We will do this at the top level in our application - `App.jsx` - with the help of useState. We will then pass this state to the child components using props.
+:book: We want to add state for our _todos_. We will do this at the top level in our application - `App.jsx` - with the help of *useState*. We will then pass this state to the child components using props.
 
 :pencil2: At the beginning of your App function component, paste in:
 ```js
@@ -142,25 +142,25 @@ const AddTodo = ({ addTodo }) => {
 export default AddTodo;
 ```
 
-:pencil2: Now go back to `App.jsx` and import AddTodo. Then add the _AddTodo_ component below _TodoList_ in your return statement passing in the _addTodo_ function and the _todos_ as props:
+:pencil2: Now go back to `App.jsx` and import *AddTodo*. Then add the _AddTodo_ component below _TodoList_ in your return statement passing in the _addTodo_ function and the _todos_ as props:
 ```js
 <AddTodo addTodo={addTodo} todos={todos}/>
 ```
 You should now be able to add a todo with a unique id.
 
 ### 4.1.3 Remove Todo
-:pencil2: We use filter to return an array that no longer contains the element that matches the id of the todo we want to delete. Add this function to App.jsx and send it through as a prop to TodoItem (remember that it needs to be sent through `TodoList.jsx`):
+:pencil2: We use [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to return an array that no longer contains the element that matches the id of the todo we want to delete. Add this function to `App.jsx` and send it through as a prop to TodoItem (remember that it needs to be sent through `TodoList.jsx`):
 ```js
    const removeTodo = id => {
         setTodos(todos => todos.filter(t => t.id !== id));
     };
 ```
-:pencil: Also remember to update proptypes to expect a new prop that is a function
+:pencil: Also remember to update proptypes in `TodoItem.jsx` to expect a new prop that is a function. You can use `PropType.func` for this.
 
 :pencil2: Now that you have added the function to `TodoItem.jsx` as a prop you can add an _onClick_ event handler on the delete button:
 ```js
  <button type="button" onClick={() => removeTodo(id)}>Delete</button>
- ```
+```
 
 ### 4.1.4 Remove default todos
 :star: If you want to you can now remove the default todos in useState in `App.jsx` and instead leave an empty array. 
@@ -169,7 +169,7 @@ const [todos, setTodos] = React.useState([]);
 ```
 
 ### 4.1.5 Clean up
-If something isn't working, please check the instructions again or ask the instructors for help. App.jsx should now look something like this:
+If something isn't working, please check the instructions again or ask the instructors for help. `App.jsx` should now look something like this:
 ```js
 import React from "react";
 import Summary from "./Summary";
@@ -204,14 +204,12 @@ export default App;
 ```
 
 ## 4.2 - Context API and useContext
-React now allows for internal state in both function and class components, using useState or setState respectively. Sometimes, when you only need to pass props through a few components, all you need is internal state. There are however options for managing state globally - two of which are Context and Redux. This is typically used for larger applications that has a lot of state. Knowing when to use which mechanism is part of the learning curve with this stack.
+React now allows for internal state in both function and class components, using useState or setState respectively. Sometimes, when you only need to pass props through a few components, all you need is internal state. There are, however, options for managing state globally - two of which are Context and Redux. These are typically used to avoid [prop drilling](https://kentcdodds.com/blog/prop-drilling), or in larger applications that has a lot of state which needs to be widely accessible. Knowing when to use which mechanism is part of the learning curve with React.
 
 When we use props we pass data from a parent component to a child component. We could pass props through 50 components if we wanted to, but this is tedious and error prone. React Context is a really good alternative to solve this problem. React Context is a way for a child component to directly access a value without props. With context we can share data that can be considered global for a tree of React components. Let's say we want to add a “theme” prop in order to style the delete button in todoItem.
 
 :pencil2: create a new file `theme.js` and copy & paste the following content:
 ```js
-import React from "react";
-
 export const themes = {
     light: {
       foreground: '#000000',
@@ -226,7 +224,9 @@ export const themes = {
 
 :pencil2: Now in `App.js` import the `theme.js` file and send the theme prop to the `TodoList` component:
 ```js
-import {themes} from './theme’;
+import {themes} from './theme';
+
+...
 
 <TodoList
     theme={themes.light}
@@ -268,10 +268,16 @@ const TodoItem = ({ id, description, removeTodo, theme }) => (
 );
 ```
 
+### 4.2.1 - Implement context
+
 If we use context, we can avoid passing props through `Todolist` to set the background color of the button.  
 
-:pencil2: Rename `theme.js` to `themeContext.js`. Use React.createContext to create a context for the current theme (with "light" as the default) in `themeContext.js`.
+:pencil2: Rename `theme.js` to `themeContext.js`. Import React, and use React.createContext to create a context for the current theme (with "light" as the default) in `themeContext.js`.
 ```js
+import React from "react";
+
+...
+
 export const ThemeContext = React.createContext(
     themes.light
 );
@@ -311,7 +317,7 @@ const TodoItem = ({ description, id, removeTodo }) => {
         </div>
     );
 };
-```  
+```
 
 The delete button should now render to the sceen with the current theme color. 
 
