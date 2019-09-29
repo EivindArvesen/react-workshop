@@ -1,8 +1,10 @@
 import React from "react";
-
 import Summary from "./Summary";
 import TodoList from "./TodoList";
 import AddTodo from "./AddTodo";
+import ArchivedTodoListContainer from "./ArchivedTodoListContainer";
+import { archiveTodo } from "./todoActions";
+import { useDispatch } from 'react-redux'
 
 import {themes} from './themeContext';
 
@@ -16,7 +18,10 @@ const App = () => {
     setTodos(newTodos);
    };
 
+  const dispatch = useDispatch();
+
   const removeTodo = id => {
+  	dispatch(archiveTodo(todos.filter(t => t.id === id)[0].description));
     setTodos(todos => todos.filter(t => t.id !== id));
   };
 
@@ -30,6 +35,10 @@ const App = () => {
 				todoItems={todos}
 				removeTodo={removeTodo}
 	    />
+	    <ArchivedTodoListContainer
+	    	theme={themes.light}
+	    	removeTodo={()=>{}}
+    	/>
 	  </div>
   )
 };
