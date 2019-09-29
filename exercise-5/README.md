@@ -197,7 +197,7 @@ This way we don't have to specify PropTypes validation, and we reduce boilerplat
 :pencil2: Stop the web server running the todo app and install `redux` and `react-redux`:
 
 ```bash
-$ npm install redux react-redux
+$ npm install redux react-redux --save
 ```
 
 - `redux` is the main Redux library.
@@ -311,7 +311,7 @@ The buttons at the bottom are for special and advanced use cases and can be safe
 
 We'll explore this extension more as we go along. For now, let's get on with our app.
 
-## 5.2 - Moving the ArchivedTodo list to Redux
+## 5.2 - Implementing the ArchivedTodo list in Redux
 
 Our state exists in Redux but we have yet to connect that state to our React components. We will reuse the todoList and the todoItem components to render our archivedTodo list.
 
@@ -330,7 +330,12 @@ import TodoList from "./TodoList";
 2.  :pencil2: Next, we create the _Container_-component:
 
 ```jsx
-const ArchivedTodoListContainer = props => <TodoList {...props} />;
+const ArchivedTodoListContainer = props => (
+    <div>
+      <h2>Archive</h2>
+      <TodoList {...props} />
+    </div>
+);
 ```
 
 3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects a `todoItems` _prop_ of type array that contains instances of `Todo` class instances. To make TodoList render our archivedTodo list we need to pass archivedTodos.:
@@ -350,7 +355,18 @@ export default connect(
 )(ArchivedTodoListContainer);
 ```
 
-5.  :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our _App_. Open _App.jsx_ and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as `<ArchivedTodoListContainer />`.
+5. :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our App. Open `App.jsx` and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as 
+
+   ```jsx
+   <ArchivedTodoListContainer
+     theme={themes.light}
+     removeTodo={()=>{}}
+   />
+   ```
+
+   
+
+   
 
 ## 5.3 - Initial data by dispatching actions
 
@@ -374,8 +390,70 @@ export const archiveTodo = description => ({
 
 :pencil2: Open `todosReducer.js` and add a new `case` that handles the `ARCHIVE_TODO` action type.
 
+:pencil2: Implement the case for `ARCHIVE_TODO`. Make the new state be the existing list of todos plus the new one contained in `action.description`. You can use the code examples in exercise 4 if you're stuck (but please try first).
 
-## :exclamation: Fortsett her med å implementere `ARCHIVE_TODO`action -> legg til todo-en i archivedTodo listen (og slett fra gammel liste)
+> :exclamation: Remember to avoid modifying the existing state/list of todos. You want to create a new list containing copies of the items plus the new todo item.
+
+... your solution should look something like this:
+
+```jsx
+const todosReducer = (archivedTodos = [], action) => {
+    switch (action.type) {
+      default:
+        return archivedTodos;
+      case "ARCHIVE_TODO":
+        const newTodoId = String(archivedTodos.length + 1);
+        return [...archivedTodos, {id: newTodoId, description: action.description}];
+    }
+  };
+```
+
+### Dispatching actions
+
+How do we get the `archiveTodo` action we made earlier into our component, so we can dispatch it? By using `mapDispatchToProps`.
+
+:pencil2: Edit `ArchivedTodoListContainer.jsx`, import the `archiveTodo` action from `todoActions.js` and connect it using _mapDispatchToProps_.
+
+```jsx
+/* ... */
+
+import { archiveTodo } from './todoActions';
+
+/* ... */
+
+const mapDispatchToProps = dispatch => ({
+  archiveTodo: description => dispatch(archiveTodo(description))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ArchivedTodoListContainer);
+```
+
+
+
+## Hooking it all up
+
+To archive our todo list items on deletion, we need to integrate the two lists we now have  with each other.
+
+:pencil2: Add the following to your `App.jsx`:
+
+```jsx
+import { archiveTodo } from "./todoActions";
+import { useDispatch } from 'react-redux'
+```
+
+You should also add `const dispatch = useDispatch();`to the component body and update removeTodo to look something like this:
+
+```jsx
+const removeTodo = id => {
+  	dispatch(archiveTodo(todos.filter(t => t.id === id)[0].description));
+    setTodos(todos => todos.filter(t => t.id !== id));
+  };
+```
+
+
 
 
 
