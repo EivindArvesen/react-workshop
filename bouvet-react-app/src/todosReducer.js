@@ -7,5 +7,4 @@ const todosReducer = (archivedTodos = [], action) => {
         return [...archivedTodos, {id: newTodoId, description: action.description}];
     }
   };
-
-  export default todosReducer;
+export default todosReducer;

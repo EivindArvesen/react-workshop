@@ -13,7 +13,7 @@
 
 Here's the spec for our todo app as discussed in the previous exercise, for reference.
 
-![](../images/todo-app.png)
+![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/todo-app.png)
 
 ### Header
 
@@ -31,13 +31,13 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
   - A checkbox with the description of the todo
   - A delete button which will remove the todo item permanently
 
-![](../images/todo-app-components.png)
+![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/todo-app-components.png)
 
 1. `App`. Will contain the header text and the sub-components.
-1. `Summary`. Will contain the total number of tasks and show how many of those are completed.
-1. `AddTodo`. Will contain the textbox and Add-button.
-1. `TodoList`. Will contain the list for all todo items.
-1. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
+2. `Summary`. Will contain the total number of tasks and show how many of those are completed.
+3. `AddTodo`. Will contain the textbox and Add-button.
+4. `TodoList`. Will contain the list for all todo items.
+5. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
 
 ## 5.1 - Redux in a hurry
 
@@ -49,7 +49,7 @@ Redux is a _state container_. All state that needs to be shared between componen
 
 ### Understanding Redux
 
-![](../images/redux03.png)
+![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/redux03.png)
 
 Let's say we have an _Add_-button to add a new todo item. Adding this new todo item to the list of todo items would look like this:
 
@@ -197,7 +197,7 @@ This way we don't have to specify PropTypes validation, and we reduce boilerplat
 :pencil2: Stop the web server running the todo app and install `redux` and `react-redux`:
 
 ```bash
-$ npm install redux react-redux
+$ npm install redux react-redux --save
 ```
 
 - `redux` is the main Redux library.
@@ -205,7 +205,16 @@ $ npm install redux react-redux
 
 Now we want to use Redux to create a archivedTodo list. 
 
-:pencil2: Create a 'Move to archive' button next to the delete button in `TodoItem.jsx`. When this button is clicked it should remove the todoItem from the current list. 
+:pencil2: Create a 'Move to archive' button next to the delete button in `TodoItem.jsx`. When this button is clicked it should remove the todoItem from the current list. You should also update the propTypes to include the new button, as well as make the buttons optinal, i.e.
+
+```jsx
+TodoItem.propTypes = {
+  description: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  removeTodo: PropTypes.func,
+  archiveButton: PropTypes.func
+};
+```
 
 Our goal is to move this todoItem from our current list to our new archivedTodo list with the help of Redux.
 
@@ -246,7 +255,7 @@ import { combineReducers } from "redux";
 import todosReducer from "./todosReducer";
 
 export default combineReducers({
-  archivedtodos: todosReducer
+  archivedTodos: todosReducer
 });
 ```
 
@@ -299,7 +308,7 @@ In exercise 1 we installed the browser extension _Redux dev tools_. Let's see wh
 
 A rather complex-looking window should appear. If it says something like "Could not find local Redux store", something is wrong with your setup and you should contact an instructor. Most likely, something is wrong in `reduxStore.js`.
 
-![](../images/redux-dev-tools.png)
+![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/redux-dev-tools.png)
 
 The left-side panel (red) is a list of all actions that has been dispatched to the store. We'll explore this is in more detail when we implement actions.
 
@@ -311,7 +320,7 @@ The buttons at the bottom are for special and advanced use cases and can be safe
 
 We'll explore this extension more as we go along. For now, let's get on with our app.
 
-## 5.2 - Moving the ArchivedTodo list to Redux
+## 5.2 - Implementing the ArchivedTodo list in Redux
 
 Our state exists in Redux but we have yet to connect that state to our React components. We will reuse the todoList and the todoItem components to render our archivedTodo list.
 
@@ -319,7 +328,7 @@ Our state exists in Redux but we have yet to connect that state to our React com
 
 Let's write it out step by step.
 
-1.  :pencil2: Import React and the magic glue from Redux to connect the state with the component. We also need our _Component_ that knows how to render out the todo list:
+1. :pencil2: Import React and the magic glue from Redux to connect the state with the component. We also need our _Component_ that knows how to render out the todo list:
 
 ```jsx
 import React from "react";
@@ -327,13 +336,18 @@ import { connect } from "react-redux";
 import TodoList from "./TodoList";
 ```
 
-2.  :pencil2: Next, we create the _Container_-component:
+2. :pencil2: Next, we create the _Container_-component:
 
 ```jsx
-const ArchivedTodoListContainer = props => <TodoList {...props} />;
+const ArchivedTodoListContainer = props => (
+    <div>
+      <h2>Archive</h2>
+      <TodoList {...props} />
+    </div>
+);
 ```
 
-3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects a `todoItems` _prop_ of type array that contains instances of `Todo` class instances. To make TodoList render our archivedTodo list we need to pass archivedTodos.:
+3. :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects a `todoItems` _prop_ of type array that contains instances of `Todo` class instances. To make TodoList render our archivedTodo list we need to pass archivedTodos.:
 
 ```js
 const mapStateToProps = state => ({
@@ -341,7 +355,7 @@ const mapStateToProps = state => ({
 });
 ```
 
-4.  :pencil2: Next, we _connect_ the _ArchivedTodoListContainer_ and the _mapStateToProps_ together. Note that we just pass `null` as `mapDispatchToProps` because we don't have any functions to connect yet. You can leave the parameter unset/undefined if you want.
+4. :pencil2: Next, we _connect_ the _ArchivedTodoListContainer_ and the _mapStateToProps_ together. Note that we just pass `null` as `mapDispatchToProps` because we don't have any functions to connect yet. You can leave the parameter unset/undefined if you want.
 
 ```jsx
 export default connect(
@@ -350,15 +364,25 @@ export default connect(
 )(ArchivedTodoListContainer);
 ```
 
-5.  :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our _App_. Open _App.jsx_ and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as `<ArchivedTodoListContainer />`.
+5. :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our App. Open `App.jsx` and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as 
+
+   ```jsx
+   <ArchivedTodoListContainer
+     archiveTodo={()=>{}}
+   />
+   ```
+
+   
+
+   
 
 ## 5.3 - Initial data by dispatching actions
 
-Our next goal is to implement the whole Redux chain: Dispatching a `archiveTodo` action that is received and handled in the reducer and then added to the archivedTodo list and displayed in the GUI.
+Our next goal is to implement the whole Redux chain: Dispatching an `archiveTodo` action that is received and handled in the reducer and then added to the archivedTodo list and displayed in the GUI.
 
 Remember this one-way data flow:
 
-![](../images/redux03.png)
+![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/redux03.png)
 
 The first step, so we can slowly get familiar with Redux, is to dispatch one `archiveTodo` action for each todo we want to archive.
 
@@ -366,7 +390,7 @@ The first step, so we can slowly get familiar with Redux, is to dispatch one `ar
 :pencil2: Create the `archiveTodo` action:
 
 ```js
-export const archiveTodo = description => ({
+export const archiveTodoAction = description => ({
   type: "ARCHIVE_TODO",
   description
 });
@@ -374,9 +398,70 @@ export const archiveTodo = description => ({
 
 :pencil2: Open `todosReducer.js` and add a new `case` that handles the `ARCHIVE_TODO` action type.
 
+:pencil2: Implement the case for `ARCHIVE_TODO`. Make the new state be the existing list of todos plus the new one contained in `action.description`. You can use the code examples in exercise 4 if you're stuck (but please try first).
 
-## :exclamation: Fortsett her med å implementere `ARCHIVE_TODO`action -> legg til todo-en i archivedTodo listen (og slett fra gammel liste)
+> :exclamation: Remember to avoid modifying the existing state/list of todos. You want to create a new list containing copies of the items plus the new todo item.
+
+... your solution should look something like this:
+
+```jsx
+const todosReducer = (archivedTodos = [], action) => {
+    switch (action.type) {
+      default:
+        return archivedTodos;
+      case "ARCHIVE_TODO":
+        const newTodoId = String(archivedTodos.length + 1);
+        return [...archivedTodos, {id: newTodoId, description: action.description}];
+    }
+  };
+export default todosReducer;
+```
+
+### Dispatching actions
+
+How do we get the `archiveTodo` action we made earlier into our component, so we can dispatch it? By using `mapDispatchToProps`.
+
+:pencil2: Edit `ArchivedTodoListContainer.jsx`, import `archiveTodoAction` from `todoActions.js` and connect it using _mapDispatchToProps_.
+
+```jsx
+/* ... */
+
+import { archiveTodoAction } from './todoActions';
+
+/* ... */
+
+const mapDispatchToProps = dispatch => ({
+  archiveTodo: description => dispatch(archiveTodoAction(description))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ArchivedTodoListContainer);
+```
 
 
+
+## Hooking it all up
+
+To archive our todo list items on deletion, we need to integrate the two lists we now have  with each other.
+
+:pencil2: Add the following to your `App.jsx`:
+
+```jsx
+import { archiveTodoAction } from "./todoActions";
+import { useDispatch } from 'react-redux'
+```
+
+You should also add `const dispatch = useDispatch();`to the component body and add `archiveTodo` :
+
+```jsx
+const archiveTodoItem = id => {
+  	dispatch(archiveTodoAction(todos.filter(t => t.id === id)[0].description));
+    setTodos(todos => todos.filter(t => t.id !== id));
+  };
+```
+
+Afterwards, you need to add the `archiveTodo`-attribute on the  `TodoList`-component, and set it to `{archiveTodo}`.
 
 ### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)

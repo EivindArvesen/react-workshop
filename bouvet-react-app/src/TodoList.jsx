@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todoItems, removeTodo, theme }) => (
+const TodoList = ({ todoItems, removeTodo, archiveTodo }) => (
   <div>
     {
       todoItems.map(todoItem => (
@@ -11,7 +11,7 @@ const TodoList = ({ todoItems, removeTodo, theme }) => (
           id={todoItem.id}
           description={todoItem.description}
           removeTodo={removeTodo}
-          theme={theme}
+          archiveTodo={archiveTodo}
         />
       ))
     }
