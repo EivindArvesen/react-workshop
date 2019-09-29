@@ -416,6 +416,9 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
   justify-content: space-between;
   margin-bottom: 5px;
 }
+.todo-item__line {
+  display: inline-block;
+}
 ```
 
 :pencil2: In `TodoItem.jsx`, import the css, similar to `App` and `Summary`.
@@ -424,7 +427,7 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
 ```jsx
 const TodoItem = ({ id, description }) => (
   <div className="todo-item__container">
-    <div>
+    <div className="todo-item__line">
       <input type="checkbox" id={`todoItemCheckbox-${id}`} />
       <label htmlFor={`todoItemCheckbox-${id}`}>{description}</label>
     </div>
