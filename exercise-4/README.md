@@ -283,7 +283,7 @@ export const ThemeContext = React.createContext(
 );
 ```
 
-:book: We can now access ThemeContext in any component using the _useContext_ hook:
+:book: We can now access ThemeContext in any function component using the _useContext_ hook:
 
 ```js
 import { ThemeContext } from "./themeContext";
