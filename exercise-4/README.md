@@ -321,24 +321,4 @@ const TodoItem = ({ description, id, removeTodo }) => {
 
 The delete button should now render to the sceen with the current theme color. 
 
-
-# Exercise 6 - Completing the Todo app
-
-## In this exercise you will learn to:
-
-- Create more React components and modify Redux state
-
-## 6.1 - Remaining work //Sara - denne legges helt på slutten, jeg vet ikke hvilket nummer det blir, men dette er en bonusoppgave
-
-At this point we've made some React components, applied some styling, used hooks for internal state, installed Redux, and used Redux to handle more state. You should therefore have all the necessary tools to implement the remaining features.
-
-Happy hacking!
-
-:pencil2: Using hooks and the `Summary` component, get `todosCount` and `completedTodosCount` to display the correct number based on the `completed` status on each todo item (true or false).
-
-:pencil2: Change the value of `completed` of a given todo from false to true when the checkbox is ticked (and back again when unchecked)
-
-
-
-
 ### [Go to exercise 5 :arrow_right:](../exercise-5/README.md)
