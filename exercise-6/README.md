@@ -2,15 +2,20 @@
 
 If you're done with all the previous assignments, you can try the following:
 
-- Add an "add"-button that does the same as pressing <kbd>Enter</kbd> in the input field (adds a new ToDo-item)
+- Add an "add"-button that does the same as pressing <kbd>Enter</kbd> in the input field (adds a new ToDo-item).
 
-- Add some CSS to your components, in order to style the page elements more like the app spec (see below)
+- Add some CSS to your components, in order to style the page elements more like the app spec (see below).
 
 - Add some default ToDo-items, both in the regular as well as the archive list.
 
 - Implement functionality that lets you delete archived ToDo-items.
 
-  
+- Fix your application so that it displays the correct number of completed ToDo-items.
+
+- Implement functionality that lets you unarchive archived ToDo-items.
+
+- Make completed ToDo-items appear with a strikehtrough.
+
 
 ## Reminder: Todo app spec
 
