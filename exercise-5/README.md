@@ -13,7 +13,7 @@
 
 Here's the spec for our todo app as discussed in the previous exercise, for reference.
 
-![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/todo-app.png)
+![](../images/todo-app.png)
 
 ### Header
 
@@ -31,7 +31,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
   - A checkbox with the description of the todo
   - A delete button which will remove the todo item permanently
 
-![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/todo-app-components.png)
+![](../images/todo-app-components.png)
 
 1. `App`. Will contain the header text and the sub-components.
 2. `Summary`. Will contain the total number of tasks and show how many of those are completed.
@@ -49,7 +49,7 @@ Redux is a _state container_. All state that needs to be shared between componen
 
 ### Understanding Redux
 
-![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/redux03.png)
+![](../images/redux03.png)
 
 Let's say we have an _Add_-button to add a new todo item. Adding this new todo item to the list of todo items would look like this:
 
@@ -203,7 +203,7 @@ $ npm install redux react-redux --save
 - `redux` is the main Redux library.
 - `react-redux` is a helper library providing glue between React and Redux.
 
-Now we want to use Redux to create a archivedTodo list. 
+Now we want to use Redux to create a archivedTodo list.
 
 :pencil2: Create a 'Move to archive' button next to the delete button in `TodoItem.jsx`. When this button is clicked it should remove the todoItem from the current list. You should also update the propTypes to include the new button, as well as make the buttons optinal, i.e.
 
@@ -272,7 +272,7 @@ const todosReducer = (archivedTodos = [], action) => {
         return archivedTodos;
     }
   };
-  
+
   export default todosReducer;
 ```
 
@@ -308,7 +308,7 @@ In exercise 1 we installed the browser extension _Redux dev tools_. Let's see wh
 
 A rather complex-looking window should appear. If it says something like "Could not find local Redux store", something is wrong with your setup and you should contact an instructor. Most likely, something is wrong in `reduxStore.js`.
 
-![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/redux-dev-tools.png)
+![](../images/redux-dev-tools.png)
 
 The left-side panel (red) is a list of all actions that has been dispatched to the store. We'll explore this is in more detail when we implement actions.
 
@@ -364,7 +364,7 @@ export default connect(
 )(ArchivedTodoListContainer);
 ```
 
-5. :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our App. Open `App.jsx` and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as 
+5. :pencil2: Finally, we have to include the _ArchivedTodoListContainer_ component in our App. Open `App.jsx` and import and use _ArchivedTodoListContainer_. Using this component should be as straight-forward as
 
    ```jsx
    <ArchivedTodoListContainer
@@ -372,9 +372,9 @@ export default connect(
    />
    ```
 
-   
 
-   
+
+
 
 ## 5.3 - Initial data by dispatching actions
 
@@ -382,7 +382,7 @@ Our next goal is to implement the whole Redux chain: Dispatching an `archiveTodo
 
 Remember this one-way data flow:
 
-![](/Users/eivind/Library/Mobile%20Documents/com~apple~CloudDocs/src/Js/react-workshop/images/redux03.png)
+![](../images/redux03.png)
 
 The first step, so we can slowly get familiar with Redux, is to dispatch one `archiveTodo` action for each todo we want to archive.
 

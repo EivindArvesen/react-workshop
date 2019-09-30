@@ -84,6 +84,18 @@ Emphasizes how lines of text should change.
 + and replaced with this text
 ```
 
+## Proposed solutions
+
+Should you want or need to look at proposed solutions for the assignments, these are available at the following tags:
+
+-   `ex1`
+-   `ex2`
+-   `ex3`
+-   `ex4`
+-   `ex5`
+
+You can check them out using `git checkout <TAG>`
+
 ## Standing on the shoulders of giants
 
 These excercises were originally forked from the excellent [React and Redux](https://github.com/nerdschoolbergen/react) workshop materials by [Bergen Nerdschool](https://nerdschoolbergen.github.io/home/).
