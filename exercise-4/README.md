@@ -58,6 +58,18 @@ Where _thing_ is the value of the state, _setThing_ gives us a function to updat
 ### 4.1.1 Initiate state
 :book: We want to add state for our _todos_. We will do this at the top level in our application - `App.jsx` - with the help of *useState*. We will then pass this state to the child components using props.
 
+:pencil2: Put curly braces around the parentheses of your App component and return the element explicitly, i.e.
+
+```js
+const App = () => {
+return (
+  <div>
+    <h1>My Todo App</h1>
+  </div>
+  );
+};
+```
+
 :pencil2: At the beginning of your App function component, paste in:
 ```js
 const [todos, setTodos] = React.useState([
