@@ -218,6 +218,15 @@ TodoList.propTypes = {
 };
 ```
 
+This states that the `todoItems` props should be an array.
+Before this block, you can also insert the following to set the prop to an empty array as a default value.
+
+```jsx
+TodoList.defaultProps = {
+  todoItems: []
+};
+```
+
 The content in `TodoList.js` should now look like this:
 
 ```jsx
@@ -364,7 +373,7 @@ TodoItem.propTypes = {
       id={todoItem.id}
       description={todoItem.description}
     />
-  ));
+  ))
 }
 ```
 
